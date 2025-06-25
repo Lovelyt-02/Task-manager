@@ -8,6 +8,11 @@ export const env = createEnv({
    */
   server: {
     DATABASE_URL: z.string().url(),
+    B2_KEY_ID: z.string(),
+B2_APP_KEY: z.string(),
+B2_BUCKET_ID: z.string(),
+B2_BUCKET: z.string(),
+  B2_ENDPOINT: z.string().url(),
     NODE_ENV: z
       .enum(["development", "test", "production"])
       .default("development"),
@@ -29,6 +34,11 @@ export const env = createEnv({
   runtimeEnv: {
     DATABASE_URL: process.env.DATABASE_URL,
     NODE_ENV: process.env.NODE_ENV,
+        B2_KEY_ID: process.env.B2_KEY_ID,
+    B2_APP_KEY: process.env.B2_APP_KEY,
+    B2_BUCKET_ID: process.env.B2_BUCKET_ID,
+    B2_BUCKET: process.env.B2_BUCKET,
+    B2_ENDPOINT: process.env.B2_ENDPOINT,
     // NEXT_PUBLIC_CLIENTVAR: process.env.NEXT_PUBLIC_CLIENTVAR,
   },
   /**

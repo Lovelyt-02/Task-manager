@@ -1,7 +1,9 @@
 import Link from "next/link";
-
+import UploadImage from "~/app/_components/UploadImage";
 import { LatestPost } from "~/app/_components/post";
 import { api, HydrateClient } from "~/trpc/server";
+import { LatestTasks } from "./_components/LatestTask";
+import { TaskForm } from "./_components/TaskForm";
 
 export default async function Home() {
   const hello = await api.post.hello({ text: "from tRPC" });
@@ -44,10 +46,14 @@ export default async function Home() {
               {hello ? hello.greeting : "Loading tRPC query..."}
             </p>
           </div>
-
-          <LatestPost />
+          <TaskForm/>
+             <UploadImage />
+          <LatestTasks/>
+{/* 
+          <LatestPost /> */}
         </div>
       </main>
     </HydrateClient>
   );
 }
+
